@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Perris Socios</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <h1>Formulario Nuevos Socios</h1>
+    <form action="" method="post">
+    <table>
+        <tr>
+            <td>Rut:</td>
+            <td> <input type="number" name="rut" id="rut"> - </td>
+            <td> <input type="text" name="dv" id="dv"> </td>
+        </tr>
+        <tr>
+            <td>Nombre:</td>
+            <td colspan="2"> 
+                <input type="text" name="nombre" id="nombre">
+            </td>
+            
+        </tr>
+        <tr>
+            <td>Apellido:</td>
+            <td colspan="2">
+                <input type="text" name="apellido" id="apellido">
+            </td>
+            
+        </tr>
+        <tr>
+            <td>Correo:</td>
+            <td colspan="2">
+                <input type="email" name="correo" id="correo">
+            </td>        
+        </tr>
+        <tr>
+            <td>Direccion:</td>
+            <td colspan="2">
+                <textarea name="direccion" id="direccion" rows="4" cols="15">
+
+                </textarea>
+            </td>
+            
+        </tr>
+        <tr>
+            <td>Fono:</td>
+            <td colspan="2">
+                <input type="number" name="fono" id="fono">
+            </td>            
+        </tr>
+        <tr>
+            <td>Comuna:</td>
+            <td colspan="2">
+                <select name="comuna" id="comuna">
+                    <option value="1">Santiago</option>
+                    <option value="2">Quilicura</option>
+                    <option value="3">San Miguel</option>
+                    <option value="4">Pudahuel</option>
+                </select>
+            </td>
+            
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="button" onclick="grabar()" value="Enviar">
+                <input type="button" onclick="limpiar()" value="Limpiar">
+                <input type="reset" value="Limpiar">
+            </td>
+            
+        </tr>
+    </table>
+    </form>
+    <script>
+        
+        function grabar(){
+            
+            //console.log("hola mundo consola");
+            var rut= document.getElementById("rut").value;
+            var dv = document.getElementById("dv").value;
+            var nombre = document.getElementById("nombre").value;
+            const socio={
+                "rut":rut,
+                "dv":dv,
+                "nombre":nombre
+            };
+
+            console.log("Socio:"+JSON.stringify(socio) );
+            localStorage.setItem("socio",JSON.stringify(socio));
+        }
+        function limpiar(){
+            document.getElementById("rut").value=""
+        }
+    </script>
+</body>
+</html>
